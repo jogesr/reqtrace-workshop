@@ -1,0 +1,173 @@
+[
+  {
+    "id": "TC-001",
+    "title": "Drehzahl Minimum und Maximum einstellen",
+    "steps": [
+      "Gerät einschalten",
+      "Solldrehzahl auf 50 1/min stellen",
+      "Solldrehzahl auf 2000 1/min stellen",
+      "Versuchen, 2010 1/min einzustellen"
+    ],
+    "expected": "50 und 2000 1/min sind einstellbar, 2010 1/min wird abgelehnt.",
+    "requirement_ids": [
+      "REQ-001"
+    ],
+    "last_result": "passed",
+    "last_run": "2026-10-14",
+    "tester": "Tester A",
+    "notes": []
+  },
+  {
+    "id": "TC-002",
+    "title": "Drehzahlgenauigkeit bei 500 und 1500 1/min",
+    "steps": [
+      "Solldrehzahl 500 1/min, 2 min warten, Ist-Drehzahl messen",
+      "Solldrehzahl 1500 1/min, 2 min warten, Ist-Drehzahl messen"
+    ],
+    "expected": "Abweichung jeweils ≤ 2 %.",
+    "requirement_ids": [
+      "REQ-002"
+    ],
+    "last_result": "passed",
+    "last_run": "2026-10-14",
+    "tester": "Tester A",
+    "notes": []
+  },
+  {
+    "id": "TC-003",
+    "title": "Reaktionszeit Stopp-Taste",
+    "steps": [
+      "Motor auf 2000 1/min laufen lassen",
+      "Stopp-Taste drücken",
+      "Zeit bis Stillstand messen"
+    ],
+    "expected": "Stillstand nach ≤ 1 s.",
+    "requirement_ids": [
+      "REQ-003"
+    ],
+    "last_result": "failed",
+    "last_run": "2026-10-15",
+    "tester": "Tester B",
+    "notes": [
+      "Gemessen: 1,3 s (synthetischer Wert)"
+    ]
+  },
+  {
+    "id": "TC-004",
+    "title": "Aktualisierungsrate Display",
+    "steps": [
+      "Drehzahl ändern",
+      "Display mit Hochgeschwindigkeitskamera aufnehmen"
+    ],
+    "expected": "Mindestens 2 Aktualisierungen pro Sekunde.",
+    "requirement_ids": [
+      "REQ-004"
+    ],
+    "last_result": "passed",
+    "last_run": "2026-10-15",
+    "tester": "Tester C",
+    "notes": []
+  },
+  {
+    "id": "TC-005",
+    "title": "Timer-Ablauf",
+    "steps": [
+      "Timer auf 1 min stellen",
+      "Motor starten",
+      "Ablauf abwarten"
+    ],
+    "expected": "Motor stoppt nach 1 min, akustisches Signal ertönt.",
+    "requirement_ids": [
+      "REQ-005"
+    ],
+    "last_result": "not_run",
+    "last_run": null,
+    "tester": null,
+    "notes": []
+  },
+  {
+    "id": "TC-006",
+    "title": "Überlastabschaltung",
+    "steps": [
+      "Motor mit Bremse belasten, bis Strom > 1,5 A",
+      "4 s warten"
+    ],
+    "expected": "Motor stoppt, E-17 wird angezeigt.",
+    "requirement_ids": [
+      "REQ-006"
+    ],
+    "last_result": "passed",
+    "last_run": "2026-10-16",
+    "tester": "Tester B",
+    "notes": []
+  },
+  {
+    "id": "TC-007",
+    "title": "Fehlerprotokoll-Überlauf",
+    "steps": [
+      "51 Fehler provozieren",
+      "Fehlerprotokoll auslesen"
+    ],
+    "expected": "Die letzten 50 Fehler sind mit Zeitstempel vorhanden, der älteste wurde verworfen.",
+    "requirement_ids": [
+      "REQ-008"
+    ],
+    "last_result": "not_run",
+    "last_run": null,
+    "tester": null,
+    "notes": []
+  },
+  {
+    "id": "TC-008",
+    "title": "Einstellungen nach Firmware-Update",
+    "steps": [
+      "Benutzereinstellungen ändern",
+      "Firmware-Update über USB durchführen",
+      "Einstellungen prüfen"
+    ],
+    "expected": "Benutzereinstellungen sind unverändert.",
+    "requirement_ids": [
+      "REQ-012"
+    ],
+    "last_result": "blocked",
+    "last_run": "2026-10-16",
+    "tester": "Tester A",
+    "notes": [
+      "Update-Image nicht verfügbar (synthetisch)"
+    ]
+  },
+  {
+    "id": "TC-009",
+    "title": "Stopp-Taste während laufendem Timer",
+    "steps": [
+      "Timer auf 10 min stellen",
+      "Motor starten",
+      "Nach 1 min Stopp-Taste drücken"
+    ],
+    "expected": "Motor stoppt innerhalb 1 s, Timer wird angehalten.",
+    "requirement_ids": [
+      "REQ-003",
+      "REQ-005"
+    ],
+    "last_result": "passed",
+    "last_run": "2026-10-16",
+    "tester": "Tester C",
+    "notes": []
+  },
+  {
+    "id": "TC-010",
+    "title": "Bedienung mit Laborhandschuhen",
+    "steps": [
+      "Nitrilhandschuhe anziehen",
+      "Alle Tasten bedienen"
+    ],
+    "expected": "Alle Tasten sind bedienbar.",
+    "requirement_ids": [
+      "REQ-009"
+    ],
+    "last_result": "not_run",
+    "last_run": null,
+    "tester": null,
+    "notes": []
+  }
+]

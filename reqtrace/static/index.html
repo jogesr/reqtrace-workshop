@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReqTrace – Workshop</title>
+  <style>
+    :root { --accent: #dc0000; --text: #000; --muted: #5a5a5a; --line: #ebebeb; }
+    body { font-family: Arial, Helvetica, sans-serif; color: var(--text); margin: 2rem; max-width: 960px; }
+    h1 { font-size: 1.6rem; margin-bottom: .2rem; }
+    .hint { color: var(--muted); font-size: .9rem; margin-top: 0; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
+    th, td { text-align: left; padding: .45rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { background: var(--accent); color: #fff; }
+    .status-failed { color: var(--accent); font-weight: bold; }
+    .status-passed { color: #00836d; }
+    #coverage { font-weight: bold; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>ReqTrace</h1>
+  <p class="hint">Workshop-App mit synthetischen Daten (fiktives Produkt RW-100). Kein Produktivsystem.</p>
+
+  <div id="coverage">Abdeckung wird geladen …</div>
+
+  <h2>Traceability-Matrix</h2>
+  <table>
+    <thead><tr><th>Anforderung</th><th>Titel</th><th>Status</th><th>Testfälle</th></tr></thead>
+    <tbody id="trace"></tbody>
+  </table>
+
+  <script>
+    function cell(text, cls) {
+      const td = document.createElement("td");
+      td.textContent = text;
+      if (cls) td.className = cls;
+      return td;
+    }
+
+    async function load() {
+      const cov = await (await fetch("/api/coverage")).json();
+      document.getElementById("coverage").textContent =
+        `Abdeckung: ${cov.covered} von ${cov.total} Anforderungen (${cov.percent} %)`;
+
+      const rows = await (await fetch("/api/trace")).json();
+      const body = document.getElementById("trace");
+      for (const row of rows) {
+        const tr = document.createElement("tr");
+        tr.appendChild(cell(row.requirement.id));
+        tr.appendChild(cell(row.requirement.title));
+        tr.appendChild(cell(row.status, "status-" + row.status));
+        tr.appendChild(cell(row.testcases.map(t => t.id).join(", ") || "–"));
+        body.appendChild(tr);
+      }
+    }
+    load().catch(err => {
+      document.getElementById("coverage").textContent = "Fehler beim Laden: " + err;
+    });
+  </script>
+</body>
+</html>

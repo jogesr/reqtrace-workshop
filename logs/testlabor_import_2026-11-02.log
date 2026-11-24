@@ -1,0 +1,19 @@
+# SYNTHETISCHES MATERIAL für Übung 5 – keine echten Daten
+#
+# --- Fehlermeldung aus dem (fiktiven) Testlabor ---------------------------
+# "Seit heute bricht der Import der Testergebnisse ab (Datei sample_results.csv).
+#  Danach fehlen auch Ergebnisse, die vor der kaputten Zeile standen.
+#  Konsole und Logauszug unten. – Tester A"
+#
+# --- Auszug logs/reqtrace.log ---------------------------------------------
+2026-11-02 16:41:07,112 INFO    reqtrace.importer: Zeile 2: TC-005 -> passed
+2026-11-02 16:41:07,113 INFO    reqtrace.importer: Zeile 3: TC-007 -> failed
+#
+# --- Konsolenausgabe (stderr) ---------------------------------------------
+# $ python -m reqtrace import-results data/sample_results.csv
+Traceback (most recent call last):
+  File "reqtrace/cli.py", line 103, in cmd_import_results
+    report = import_results(Path(args.csv), testcases)
+  File "reqtrace/importer.py", line 46, in import_results
+    tc = by_id[tc_id]
+KeyError: 'tc-008'

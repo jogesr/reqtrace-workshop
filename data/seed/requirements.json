@@ -1,0 +1,86 @@
+[
+  {
+    "id": "REQ-001",
+    "title": "Drehzahlbereich",
+    "text": "Die Solldrehzahl muss im Bereich 50 bis 2000 1/min in Schritten von 10 1/min einstellbar sein.",
+    "priority": "hoch",
+    "status": "freigegeben"
+  },
+  {
+    "id": "REQ-002",
+    "title": "Drehzahlgenauigkeit",
+    "text": "Im stationären Betrieb darf die Ist-Drehzahl höchstens ±2 % von der Solldrehzahl abweichen.",
+    "priority": "hoch",
+    "status": "freigegeben"
+  },
+  {
+    "id": "REQ-003",
+    "title": "Stopp-Taste",
+    "text": "Nach Betätigen der Stopp-Taste muss der Motor innerhalb von 1 s zum Stillstand kommen.",
+    "priority": "hoch",
+    "status": "freigegeben"
+  },
+  {
+    "id": "REQ-004",
+    "title": "Anzeige Ist-Drehzahl",
+    "text": "Das Display muss die Ist-Drehzahl anzeigen und mindestens zweimal pro Sekunde aktualisieren.",
+    "priority": "mittel",
+    "status": "freigegeben"
+  },
+  {
+    "id": "REQ-005",
+    "title": "Timer",
+    "text": "Ein Timer von 1 bis 999 min muss einstellbar sein. Nach Ablauf stoppt der Motor und ein akustisches Signal ertönt.",
+    "priority": "mittel",
+    "status": "freigegeben"
+  },
+  {
+    "id": "REQ-006",
+    "title": "Überlastabschaltung",
+    "text": "Überschreitet der Motorstrom 1,5 A länger als 3 s, muss der Motor stoppen und der Fehlercode E-17 angezeigt werden.",
+    "priority": "hoch",
+    "status": "freigegeben"
+  },
+  {
+    "id": "REQ-007",
+    "title": "Sanftanlauf",
+    "text": "Beim Start muss die Drehzahl mit höchstens 200 1/min pro Sekunde auf den Sollwert ansteigen.",
+    "priority": "mittel",
+    "status": "freigegeben"
+  },
+  {
+    "id": "REQ-008",
+    "title": "Fehlerprotokoll",
+    "text": "Die letzten 50 Fehler müssen mit Zeitstempel gespeichert werden.",
+    "priority": "mittel",
+    "status": "entwurf"
+  },
+  {
+    "id": "REQ-009",
+    "title": "Bedienung mit Handschuhen",
+    "text": "Das Gerät soll auch mit Handschuhen gut bedienbar sein.",
+    "priority": "niedrig",
+    "status": "entwurf"
+  },
+  {
+    "id": "REQ-010",
+    "title": "Datenexport",
+    "text": "Messdaten sollen über USB als CSV exportiert werden können.",
+    "priority": "niedrig",
+    "status": "entwurf"
+  },
+  {
+    "id": "REQ-011",
+    "title": "Bluetooth-Fernsteuerung",
+    "text": "Das Gerät soll per Bluetooth ferngesteuert werden können.",
+    "priority": "niedrig",
+    "status": "verworfen"
+  },
+  {
+    "id": "REQ-012",
+    "title": "Firmware-Update",
+    "text": "Ein Firmware-Update über USB muss möglich sein; benutzerdefinierte Einstellungen bleiben dabei erhalten.",
+    "priority": "mittel",
+    "status": "freigegeben"
+  }
+]

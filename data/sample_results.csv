@@ -1,0 +1,7 @@
+testcase_id;result;date;tester
+TC-005;passed;2026-11-02;Tester A
+TC-007;failed;2026-11-02;Tester B
+tc-008;passed;2026-11-02;Tester A
+TC-010 ;blocked;2026-11-02;Tester C
+TC-099;passed;2026-11-02;Tester B
+TC-003;Passed;2026-11-02;Tester A

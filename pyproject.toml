@@ -1,0 +1,9 @@
+[project]
+name = "reqtrace-workshop"
+version = "0.1.0"
+description = "Workshop-App: synthetische Requirements und Testfälle (kein Produktivsystem)"
+requires-python = ">=3.8"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

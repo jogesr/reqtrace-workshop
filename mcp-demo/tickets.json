@@ -1,0 +1,42 @@
+[
+  {
+    "key": "DEMO-101",
+    "titel": "CSV-Import bricht bei Testfall-ID in Kleinschreibung ab",
+    "status": "offen",
+    "bezug": "APP-06",
+    "gemeldet_von": "Testlabor (fiktiv)",
+    "beschreibung": "Beim Import von data/sample_results.csv bricht reqtrace mit KeyError: 'tc-008' ab. Ergebnisse früherer Zeilen fehlen danach ebenfalls. Laut APP-06 sollen IDs ohne Berücksichtigung der Gross-/Kleinschreibung zugeordnet werden.",
+    "kommentare": [
+      {"datum": "2026-11-02 14:10", "autor": "testlabor.demo", "text": "Log liegt unter logs/testlabor_import_2026-11-02.log."}
+    ]
+  },
+  {
+    "key": "DEMO-102",
+    "titel": "Abdeckungslücken anzeigen (CLI, API, Weboberfläche)",
+    "status": "in Arbeit",
+    "bezug": "APP-05",
+    "gemeldet_von": "Requirements (fiktiv)",
+    "beschreibung": "Anforderungen ohne verknüpften Testfall sollen aufgelistet werden; verworfene Anforderungen nicht berücksichtigen.",
+    "kommentare": []
+  },
+  {
+    "key": "DEMO-103",
+    "titel": "Exportfunktion für Prüfnachweise präzisieren",
+    "status": "offen",
+    "bezug": "APP-09",
+    "gemeldet_von": "QM (fiktiv)",
+    "beschreibung": "APP-09 sagt nur «Exportfunktion für Prüfnachweise». Format, Inhalt und Empfänger sind nicht festgelegt.",
+    "kommentare": []
+  },
+  {
+    "key": "DEMO-104",
+    "titel": "Webserver nur lokal erreichbar",
+    "status": "erledigt",
+    "bezug": "APP-11",
+    "gemeldet_von": "IT-Security (fiktiv)",
+    "beschreibung": "Prüfen, dass der Webserver nur an 127.0.0.1 bindet.",
+    "kommentare": [
+      {"datum": "2026-10-20 09:30", "autor": "security.demo", "text": "Geprüft, bindet nur an 127.0.0.1."}
+    ]
+  }
+]

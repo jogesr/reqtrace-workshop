@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "demo-tickets": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["${CLAUDE_PROJECT_DIR:-.}/server.py"],
+      "env": {
+        "DEMO_TICKET_USER": "${USERNAME:-workshop.teilnehmer}"
+      }
+    }
+  }
+}
